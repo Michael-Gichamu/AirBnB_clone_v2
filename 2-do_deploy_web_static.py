@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Deploy archive to web servers
+Fabric script to deploy archive to web servers
 """
 from os.path import isfile
 from fabric.api import run, put, env, sudo
@@ -9,7 +9,14 @@ env.hosts = ['100.25.188.172', '18.209.178.215']
 
 
 def do_deploy(archive_path):
-    """Distributes an archive to web servers"""
+    """
+    Distributes an archive to web servers.
+    Args:
+        archive_path (str): The path of the archive to distribute.
+    Returns:
+        If the file archive_path doesn't exists or case of error - False
+        Otherwise - True
+    """
     if not isfile(archive_path):
         return False
     try:
@@ -25,7 +32,7 @@ def do_deploy(archive_path):
 
         sudo('rm /tmp/{}'.format(archive_filename))
 
-        sudo('mv -f /data/web_static/releases/{}/web_static/* '
+        sudo('mv /data/web_static/releases/{}/web_static/* '
              '/data/web_static/releases/{}/'
              .format(archive_no_ext, archive_no_ext))
 
