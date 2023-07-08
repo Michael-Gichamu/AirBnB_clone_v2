@@ -12,7 +12,7 @@ def do_pack():
     """Create a .tgz archive from contents of the web_static folder"""
     time = datetime.now().strftime("%Y%m%d%H%M%S")
     if not os.path.exists('versions'):
-        local("mkdir versions")
+        local("mkdir -p versions")
     tar_name = "versions/web_static_{}.tgz".format(time)
     result = local("tar -cvzf {} web_static".format(tar_name))
 
