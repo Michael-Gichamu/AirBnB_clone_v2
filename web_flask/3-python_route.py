@@ -6,7 +6,7 @@ Route:
     /: display “Hello HBNB!"
     /hbnb: display “HBNB”
     /c/<text> - display "C <text>"
-    /python/<text> - display "Python is cool" 
+    /python/<text> - display "Python is cool"
 """
 from flask import Flask
 
