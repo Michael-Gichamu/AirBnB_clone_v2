@@ -7,6 +7,7 @@ Route:
     /hbnb: display “HBNB”
     /c/<text> - display "C <text>"
     /python/<text> - display "Python is cool"
+    /number/<n> - display n if integer.
 """
 from flask import Flask
 
